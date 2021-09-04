@@ -1,6 +1,6 @@
 {
   "name": "v4ex-api-authentication",
-  "version": "1.0.0",
+  "version": "1.0.x",
   "description": "V4EX API System: Authentication microservice.",
   "repository": "github:v4ex/v4ex-api-authentication",
   "author": "V4EX Inc. <v4ex-api-authentication@v4ex.com> (https://v4ex.com/)",
@@ -28,7 +28,6 @@
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
-    "crypto-random-string": "^4.0.0",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "mongoose": "^6.0.4",
