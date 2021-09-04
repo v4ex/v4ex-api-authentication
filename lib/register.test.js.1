@@ -1,8 +1,16 @@
+const { Identity } = require('../models/identity')
 const { Authentication } = require('../models/authentication')
-const mongoose = Authentication.base
+const mongoose = Identity.base
 
-const register = require('./register')
+const { register } = require('./register')
 
+
+beforeAll(() => {
+  return Promise.all([
+    Identity.deleteMany({}),
+    Authentication.deleteMany({})
+  ])
+})
 
 afterAll(() => {
   mongoose.connection.close()
@@ -12,46 +20,14 @@ afterAll(() => {
 describe('lib', () => {
   describe('register.js', () => {
     describe('register()', () => {
+      
+      jest.setTimeout(20000)
 
-      // # 1
-      test('Remove all', done => {
-        Authentication.remove({}, {}, done)
-      })
-
-      // #2
-      test('name:password', done => {
-        register({
-          id: {
-            name: 'abc'
-          },
-          pass: {
-            password: 'weakpassword'
-          }
-        }, done)
-      })
-
-      // #3
-      test('email:password', done => {
-        register({
-          id: {
-            email: 'abc@v4ex.com'
-          },
-          pass: {
-            password: 'weakpassword'
-          }
-        }, done)
-      })
-
-      // #4
-      test('email:password', done => {
-        register({
-          id: {
-            email: 'abc@v4ex.com'
-          },
-          pass: {
-            password: 'weakpassword'
-          }
-        }, done)
+      // #1
+      test('username:password', done => {
+        const username = 'v4ex'
+        const password = 'v4ex.com'
+        register(username, password, done)
       })
 
     })

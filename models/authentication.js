@@ -1,5 +1,4 @@
 const { Identity } = require('./identity')
-const { ConnectedRecognitionSchema } = require('./connected-recognition')
 
 const mongoose = Identity.base
 const Schema = mongoose.Schema
@@ -11,7 +10,7 @@ const ConnectedRecognitionSchema = new Schema({
 }, { _id: false })
 
 const AuthenticationSchema = new Schema({
-  identity: { type: mongoose.ObjectId, ref: Identity},
+  identity: { type: mongoose.ObjectId, ref: Identity, required: true },
   password: String,
   connectedRecognition: ConnectedRecognitionSchema
 })
