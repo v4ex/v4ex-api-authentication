@@ -1,14 +1,12 @@
-const mongoose = require('../mongoose')
+const { IdentitySchema } = require('../identity')
+const { AuthenticationSchema } = require('../authentication')
 
-const Schema = mongoose.Schema
+require('mongoose-type-email')
 
-const EmailSchema = new Schema({
-  address: { type: String, unique: true }
+IdentitySchema.plugin(schema => {
+  schema.path('email', mongoose.SchemaTypes.Email)
 })
 
-const Email = mongoose.model('Email', EmailSchema)
-
-module.exports = {
-  Email,
-  EmailSchema
-}
+AuthenticationSchema.plugin(schema => {
+  schema.path('email', mongoose.SchemaTypes.Email)
+})

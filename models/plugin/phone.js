@@ -1,14 +1,10 @@
-const mongoose = require('../../mongoose')
+const { IdentitySchema } = require('../identity')
+const { AuthenticationSchema } = require('../authentication')
 
-const Schema = mongoose.Schema
-
-const PhoneSchema = new Schema({
-  number: { type: String, unique: true }
+IdentitySchema.plugin(schema => {
+  schema.path('phone', String)
 })
 
-const Phone = mongoose.model('Phone', PhoneSchema)
-
-module.exports = {
-  Phone,
-  PhoneSchema
-}
+AuthenticationSchema.plugin(schema => {
+  schema.path('phone', String)
+})

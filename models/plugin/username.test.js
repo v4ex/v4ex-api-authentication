@@ -5,7 +5,10 @@ const { Authentication } = require('../authentication')
 const mongoose = Identity.base
 
 beforeAll(() => {
-  jest.setTimeout(20000)
+  return Promise.all([
+    Identity.deleteMany({}),
+    Authentication.deleteMany({})
+  ])
 })
 
 afterAll(() => {
@@ -13,17 +16,12 @@ afterAll(() => {
 })
 
 describe('models', () => {
-  describe('identity', () => {
+  describe('plugin', () => {
     describe('username.js', () => {
 
       jest.setTimeout(20000)
 
       // #1
-      test('Remove all Identities', done => {
-        Identity.deleteMany({}, done)
-      })
-
-      // #2
       test('Add an Identity with username', done => {
 
         Identity.create({
@@ -32,12 +30,7 @@ describe('models', () => {
         
       })
 
-      // #3
-      test('Remove all Authentications', done => {
-        Authentication.deleteMany({}, done)
-      })
-
-      // #4
+      // #2
       test('Add an Authentication with username', done => {
         Identity.findOne({ username: 'v4ex' }, (err, identity) => {
           Authentication.create({
