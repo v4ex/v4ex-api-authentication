@@ -1,5 +1,6 @@
 const { Identity } = require('../models/identity')
 const { Authentication } = require('../models/authentication')
+const { Token } = require('../models/token')
 const mongoose = Identity.base
 
 const { register } = require('./register')
@@ -8,7 +9,8 @@ const { register } = require('./register')
 beforeAll(() => {
   return Promise.all([
     Identity.deleteMany({}),
-    Authentication.deleteMany({})
+    Authentication.deleteMany({}),
+    Token.deleteMany({})
   ])
 })
 
@@ -27,7 +29,10 @@ describe('lib', () => {
       test('username:password', done => {
         const username = 'v4ex'
         const password = 'v4ex.com'
-        register(username, password, done)
+        register(username, password, (err, authentication) => {
+          console.log(`authentication`, authentication)
+          done()
+        })
       })
 
     })

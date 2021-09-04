@@ -16,7 +16,7 @@ describe('lib', () => {
       // #1
       test('token', done => {
         authenticate('1630760395207', (err, token) => {
-          console.log(token)
+          console.log(`token`, token)
           done()
         })
       })

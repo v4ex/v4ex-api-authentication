@@ -1,13 +1,7 @@
-const mongoose = require('../mongoose')
-
-const { login } = require('./login')
-
-afterAll(() => {
-  mongoose.connection.close()
-})
+const { login } = require('../lib/login')
 
 
-describe('lib', () => {
+module.exports = () => describe('lib', () => {
   describe('login.js', () => {
     describe('login()', () => {
       

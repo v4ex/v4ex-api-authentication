@@ -5,7 +5,7 @@ const Schema = mongoose.Schema
 
 const TokenSchema = new Schema({
   identity: { type: mongoose.ObjectId, ref: Identity, required: true },
-  token: { type: String, required: true },
+  token: { type: String, required: true, unique: true },
   expire: Date
 })
 
