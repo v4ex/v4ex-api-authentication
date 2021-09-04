@@ -10,6 +10,13 @@
   "license": "GPL-3.0",
   "main": "index.js",
   "files": [
+    "lib/authenticate.js",
+    "lib/login.js",
+    "lib/register.js",
+    "models/plugin/username.js",
+    "models/authentication.js",
+    "models/identity.js",
+    "models/token.js",
     ".env.example",
     "index.js",
     "LICENSE",
@@ -21,6 +28,7 @@
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
+    "crypto-random-string": "^4.0.0",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "mongoose": "^6.0.4",
