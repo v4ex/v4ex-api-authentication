@@ -1,6 +1,6 @@
 {
   "name": "v4ex-api-authentication",
-  "version": "1.0.x",
+  "version": "1.0.1",
   "description": "V4EX API System: Authentication microservice.",
   "repository": "github:v4ex/v4ex-api-authentication",
   "author": "V4EX Inc. <v4ex-api-authentication@v4ex.com> (https://v4ex.com/)",
