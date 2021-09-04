@@ -3,8 +3,7 @@ const mongoose = require('../mongoose')
 const Schema = mongoose.Schema
 
 const EmailSchema = new Schema({
-  address: String,
-  verified: Boolean
+  address: { type: String, unique: true }
 })
 
 const Email = mongoose.model('Email', EmailSchema)

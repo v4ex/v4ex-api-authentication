@@ -1,18 +1,8 @@
-const { Username } = require('./username')
-const { Email } = require('./email')
-const { Phone } = require('./phone')
-const { ConnectedIdentity } = require('./connected-identity')
-
-const mongoose = Username.base
+const mongoose = require('../mongoose')
 
 const Schema = mongoose.Schema
 
-const IdentitySchema = new Schema({
-  username: Username,
-  email: Email,
-  phone: Phone,
-  connectedIdentities: [ConnectedIdentity]
-})
+const IdentitySchema = new Schema({})
 
 const Identity = mongoose.model('Identity', IdentitySchema)
 
