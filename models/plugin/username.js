@@ -3,7 +3,7 @@ const { AuthenticationSchema } = require('../authentication')
 
 IdentitySchema.plugin(schema => {
   // console.log(`IdentitySchema.plugin() this`, this)
-  schema.path('username', String)
+  schema.path('username', { type: String, unique: true })
 })
 
 AuthenticationSchema.plugin(schema => {

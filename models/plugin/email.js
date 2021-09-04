@@ -6,7 +6,7 @@ require('mongoose-type-email')
 const mongoose = require('../../mongoose')
 
 IdentitySchema.plugin(schema => {
-  schema.path('email', mongoose.SchemaTypes.Email)
+  schema.path('email', { type: mongoose.SchemaTypes.Email, unique: true })
 })
 
 AuthenticationSchema.plugin(schema => {
