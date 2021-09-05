@@ -10,6 +10,9 @@ const { login } = require('./lib/login')
 const { logout } = require('./lib/logout')
 const { authenticate } = require('./lib/authenticate')
 
+const usernamePlugin = require('./models/plugins/username')
+const emailPlugin = require('./models/plugins/email')
+
 
 module.exports = {
   mongoose,
@@ -24,5 +27,7 @@ module.exports = {
   register,
   login,
   logout,
-  authenticate
+  authenticate,
+  usernamePlugin,
+  emailPlugin
 }
