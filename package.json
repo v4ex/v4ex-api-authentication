@@ -1,6 +1,6 @@
 {
   "name": "v4ex-api-authentication",
-  "version": "1.0.2",
+  "version": "2.0.x",
   "description": "V4EX API System: Authentication microservice.",
   "repository": "github:v4ex/v4ex-api-authentication",
   "author": "V4EX Inc. <v4ex-api-authentication@v4ex.com> (https://v4ex.com/)",
@@ -31,7 +31,7 @@
     "dotenv": "^10.0.0",
     "mongoose": "^6.0.4",
     "mongoose-type-email": "^1.1.2",
-    "v4ex-api-core": "^1.0.0"
+    "v4ex-api-core": "^2.0.0"
   },
   "devDependencies": {
     "jest": "^27.1.0"

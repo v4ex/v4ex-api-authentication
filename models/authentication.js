@@ -6,7 +6,9 @@ const Schema = mongoose.Schema
 const ConnectedRecognitionSchema = new Schema({
   provider: String,
   id: String,
-  token: String
+  token: String,
+  tokenInfo: mongoose.Mixed,
+  tokens: mongoose.Mixed
 }, { _id: false })
 
 const AuthenticationSchema = new Schema({

@@ -12,8 +12,8 @@ module.exports = () => describe('lib', () => {
         const username = 'v4ex'
         const password = 'v4ex.com'
         login(username, password, (err, token) => {
-          expect(token).toBeTruthy()
           console.log(`token`, token)
+          expect(token).toBeTruthy()
           done()
         })
       })

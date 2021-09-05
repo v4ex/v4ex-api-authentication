@@ -12,10 +12,11 @@ module.exports = () => describe('lib', () => {
       test('Authenticate by token', done => {
         const username = 'v4ex'
         const password = 'v4ex.com'
-        login(username, password, (err, loginToken) => {
-          authenticate(loginToken.token, (err, authenticateToken) => {
-            expect(authenticateToken).toBeTruthy()
+        login(username, password, (loginErr, loginToken) => {
+          authenticate(loginToken.token, (authenticateErr, authenticateToken) => {
             console.log(`authenticateToken`, authenticateToken)
+            expect(authenticateToken).toBeTruthy()
+            expect(authenticateToken.toObject().identity.username).toBe(username)
             done()
           })
         })
