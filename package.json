@@ -1,6 +1,6 @@
 {
   "name": "v4ex-api-authentication",
-  "version": "2.0.x",
+  "version": "2.0.0-alpha",
   "description": "V4EX API System: Authentication microservice.",
   "repository": "github:v4ex/v4ex-api-authentication",
   "author": "V4EX Inc. <v4ex-api-authentication@v4ex.com> (https://v4ex.com/)",
@@ -12,6 +12,7 @@
   "files": [
     "lib/authenticate.js",
     "lib/login.js",
+    "lib/logout.js",
     "lib/register.js",
     "models/plugin/username.js",
     "models/authentication.js",
