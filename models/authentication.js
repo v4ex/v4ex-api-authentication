@@ -14,6 +14,5 @@ const Authentication = mongoose.model('Authentication', AuthenticationSchema)
 
 module.exports = {
   Authentication,
-  AuthenticationSchema,
-  ConnectedRecognitionSchema
+  AuthenticationSchema
 }
