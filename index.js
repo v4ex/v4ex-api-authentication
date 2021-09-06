@@ -1,17 +1,27 @@
 const mongoose = require('./mongoose')
 
+
 const { Identity, IdentitySchema } = require('./models/identity')
 const { Authentication, AuthenticationSchema } = require('./models/authentication')
 const { ConnectedAuthentication, ConnectedAuthenticationSchema } = require('./models/connected-authentication')
 const { Token, TokenSchema } = require('./models/token')
 
+const plugins = {
+  username: require('./models/plugins/username'),
+  email: require('./models/plugins/email')
+}
+
 const { register } = require('./lib/register')
 const { login } = require('./lib/login')
-const { logout } = require('./lib/logout')
 const { authenticate } = require('./lib/authenticate')
+const { logout } = require('./lib/logout')
 
-const usernamePlugin = require('./models/plugins/username')
-const emailPlugin = require('./models/plugins/email')
+const authentication = {
+  register,
+  login,
+  authenticate,
+  logout
+}
 
 
 module.exports = {
@@ -24,10 +34,6 @@ module.exports = {
   ConnectedAuthenticationSchema,
   Token,
   TokenSchema,
-  register,
-  login,
-  logout,
-  authenticate,
-  usernamePlugin,
-  emailPlugin
+  plugins,
+  authentication
 }
