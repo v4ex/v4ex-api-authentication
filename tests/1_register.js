@@ -11,8 +11,14 @@ module.exports = () => describe('lib', () => {
       test('username:password', done => {
         const username = 'v4ex'
         const password = 'v4ex.com'
-        register(username, password, (err, authentication) => {
-          console.log(`authentication`, authentication)
+        register(username, password, (err, identity, hash, authentication) => {
+          if (err) {
+            console.error(`Error in register()`, err)
+            done(err)
+          }
+          console.log(`Identity`, identity)
+          console.log(`hash`, hash)
+          console.log(`Authentication`, authentication)
           done()
         })
       })
