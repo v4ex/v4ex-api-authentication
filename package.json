@@ -10,6 +10,8 @@
   "license": "GPL-3.0",
   "main": "index.js",
   "files": [
+    "cli/register.js",
+    "cli/login.js",
     "lib/authenticate.js",
     "lib/login.js",
     "lib/logout.js",
