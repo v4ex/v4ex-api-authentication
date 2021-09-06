@@ -2,7 +2,7 @@ const { program } = require('commander')
 const chalk = require('chalk')
 
 module.exports = ({ Identity, Authentication, Token, env }) => {
-  const { login } = require('../lib/login')({ Identity, Authentication, Token, env })
+  const { login, mongoose } = require('../lib/login')({ Identity, Authentication, Token, env })
 
   program.command('login')
          .argument('<username>', 'username to login')
@@ -17,6 +17,7 @@ module.exports = ({ Identity, Authentication, Token, env }) => {
              }
             
              console.log(token)
+             mongoose.connection.close()
            })
          })
 }

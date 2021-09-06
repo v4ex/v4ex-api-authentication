@@ -4,7 +4,7 @@ const chalk = require('chalk')
 
 module.exports = ({ Identity, Authentication, env }) => {
 
-  const { register } = require('../lib/register')({ Identity, Authentication, env })
+  const { register, mongoose } = require('../lib/register')({ Identity, Authentication, env })
   
   // TODO Only print error in DEBUG environment
   program.command('register')
@@ -20,6 +20,7 @@ module.exports = ({ Identity, Authentication, env }) => {
              }
             
              console.log(authentication)
+             mongoose.connection.close()
            })
          })
 }
