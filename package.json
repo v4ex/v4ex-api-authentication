@@ -21,6 +21,7 @@
     "models/identity.js",
     "models/token.js",
     ".env.example",
+    "cli.js",
     "index.js",
     "LICENSE",
     "mongoose.js"
