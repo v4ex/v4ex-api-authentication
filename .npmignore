@@ -1,2 +1,5 @@
 lib/token.js
 models/code-authentication.js
+models/plugins/emails.js
+models/plugins/phone.js
+models/plugins/username.test.js.1
