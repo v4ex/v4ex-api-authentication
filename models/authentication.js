@@ -4,7 +4,6 @@ module.exports = ({ Identity, modelName }) => {
   if (modelName === undefined) modelName = 'Authentication'
 
   const mongoose = Identity.base
-  const Schema = mongoose.Schema
 
   let Authentication, AuthenticationSchema
 
@@ -12,6 +11,7 @@ module.exports = ({ Identity, modelName }) => {
     Authentication = mongoose.model(modelName)
     AuthenticationSchema = Identity.schema
   } else {
+    const Schema = mongoose.Schema
     AuthenticationSchema = new Schema({
       identity: { type: mongoose.ObjectId, ref: Identity, required: true },
       password: String

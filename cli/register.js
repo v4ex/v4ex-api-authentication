@@ -13,7 +13,7 @@ module.exports = ({ Identity, Authentication, env }) => {
          .action((username, password) => {
            console.log('username:', username);
            console.log('password:', password);
-           register(username, password, function(err, identity, hash, authentication) {
+           register(username, password, function(err, { identity, hash, authentication }) {
              if (err) {
               console.log(chalk.red(err))
               console.error(err)

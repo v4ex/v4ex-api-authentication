@@ -1,17 +1,28 @@
-const { Identity } = require('./identity')({})
-const mongoose = Identity.base
 
-const Schema = mongoose.Schema
+module.exports = ({ Identity, modelName }) => {
+  if (Identity === undefined) Identity = require('./identity')({}).Identity
+  if (modelName === undefined) modelName = 'Token'
 
-const TokenSchema = new Schema({
-  identity: { type: mongoose.ObjectId, ref: Identity, required: true },
-  token: { type: String, required: true, unique: true },
-  expire: Date
-})
+  const mongoose = Identity.base
 
-const Token = mongoose.model('Token', TokenSchema)
+  let Token, TokenSchema
 
-module.exports = {
-  Token,
-  TokenSchema
+  if (mongoose.modelNames().includes(modelName)) {
+    Token = mongoose.model(modelName)
+    TokenSchema = Token.schema
+  } else {
+    const Schema = mongoose.Schema
+    TokenSchema = new Schema({
+      identity: { type: mongoose.ObjectId, ref: Identity, required: true },
+      token: { type: String, required: true, unique: true },
+      expire: Date
+    })
+    Token = mongoose.model(modelName, TokenSchema)
+  }
+
+
+  return {
+    Token,
+    TokenSchema
+  }
 }

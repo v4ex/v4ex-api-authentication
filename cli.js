@@ -2,7 +2,7 @@
 
 const { program } = require('commander')
 require('./cli/register')({})
-require('./cli/login')
+require('./cli/login')({})
 
 
 program.parse()
