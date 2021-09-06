@@ -1,12 +1,23 @@
-const mongoose = require('../mongoose')
 
-const Schema = mongoose.Schema
+module.exports = ({ mongoose, modelName }) => {
+  if (mongoose === undefined) mongoose = require('../mongoose')
+  if (modelName === undefined) modelName = 'Identity'
 
-const IdentitySchema = new Schema({})
+  const Schema = mongoose.Schema
 
-const Identity = mongoose.model('Identity', IdentitySchema)
+  let Identity, IdentitySchema
 
-module.exports = {
-  Identity,
-  IdentitySchema
+  if (mongoose.modelNames().includes(modelName)) {
+    Identity = mongoose.model(modelName)
+    IdentitySchema = Identity.schema
+  } else {
+    IdentitySchema = new Schema({})
+    Identity = mongoose.model(modelName, IdentitySchema)
+  }
+
+
+  return {
+    Identity,
+    IdentitySchema
+  }
 }

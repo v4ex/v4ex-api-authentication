@@ -1,4 +1,4 @@
-const { Identity } = require('./identity')
+const { Identity } = require('./identity')({})
 const mongoose = Identity.base
 
 const Schema = mongoose.Schema
